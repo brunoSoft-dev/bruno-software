@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #3b82f6;
+  --color-brand-secondary: #10b981;
+  --color-bg-dark: #020617;
+  --color-bg-card: #0f172a;
+  --color-accent: #6366f1;
+  
+  --font-family-display: "Outfit", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  
+  --animate-gradient: gradient 8s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  
+  @keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+:root {
+  font-family: var(--font-family-body);
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #f8fafc;
+  background-color: var(--color-bg-dark);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.glass {
+  background: rgba(15, 23, 42, 0.2);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.text-gradient {
+  background: linear-gradient(to bottom, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bento-card {
+  @apply relative overflow-hidden rounded-[2.5rem] bg-white/[0.005] border border-transparent transition-all duration-1000 hover:bg-white/[0.015] hover:border-white/[0.04];
+}
+
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.02), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.8s;
+  pointer-events: none;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
+
