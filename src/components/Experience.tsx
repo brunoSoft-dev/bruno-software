@@ -87,29 +87,29 @@ const Experience = () => {
                 {/* Right Side: Impact Cards */}
                 <div className="w-full md:w-2/3 space-y-8">
                   {exp.impacts.map((impact, i) => (
-                    <div key={i} className="p-8 md:p-10 rounded-[2rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all group">
-                      <div className="flex items-start gap-6 mb-8">
-                        <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-                          <Target className="w-5 h-5 text-blue-400" />
+                    <div key={i} className="group border border-white/[0.08] bg-white/[0.015] p-7 md:p-9 rounded-xl transition-colors duration-300 hover:border-white/[0.16] hover:bg-white/[0.025]">
+                      <div className="flex items-start gap-5 mb-8">
+                        <div className="w-10 h-10 rounded-md border border-white/[0.08] bg-white/[0.03] flex items-center justify-center shrink-0 text-slate-400 group-hover:text-white transition-colors duration-300">
+                          <Target className="w-4 h-4" />
                         </div>
-                        <h5 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors mt-2">{impact.title}</h5>
+                        <h5 className="text-2xl font-semibold text-white tracking-tight mt-1">{impact.title}</h5>
                       </div>
 
-                      <div className="grid grid-cols-1 gap-8">
-                        <div className="space-y-2">
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">O Problema</span>
-                          <p className="text-slate-400 text-sm leading-relaxed">{impact.problem}</p>
+                      <div className="grid grid-cols-1 gap-7">
+                        <div className="space-y-2 border-t border-white/[0.06] pt-5">
+                          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">O Problema</span>
+                          <p className="text-slate-400 text-base leading-7">{impact.problem}</p>
                         </div>
-                        <div className="space-y-2">
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">Minha Atuação</span>
-                          <p className="text-slate-400 text-sm leading-relaxed">{impact.action}</p>
+                        <div className="space-y-2 border-t border-white/[0.06] pt-5">
+                          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">Minha Atuação</span>
+                          <p className="text-slate-400 text-base leading-7">{impact.action}</p>
                         </div>
-                        <div className="space-y-2 p-6 rounded-2xl bg-blue-500/[0.05] border border-blue-500/20">
-                          <div className="flex items-center gap-2 mb-2">
-                            <Zap className="w-4 h-4 text-blue-400" />
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-400">Resultado Gerado</span>
+                        <div className="space-y-2 border-t border-white/[0.1] pt-5">
+                          <div className="flex items-center gap-2 mb-2 text-slate-300">
+                            <Zap className="w-4 h-4" />
+                            <span className="text-[11px] font-bold uppercase tracking-widest">Resultado Gerado</span>
                           </div>
-                          <p className="text-blue-100/90 font-medium text-sm leading-relaxed">{impact.result}</p>
+                          <p className="text-slate-200 font-medium text-base leading-7">{impact.result}</p>
                         </div>
                       </div>
                     </div>

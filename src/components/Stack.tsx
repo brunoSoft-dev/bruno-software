@@ -7,19 +7,19 @@ const stacks = [
     category: "Engenharia Backend",
     icon: <Terminal className="w-5 h-5 text-blue-400" />,
     color: "rgba(96, 165, 250, 0.08)",
-    description: "Arquiteturas escaláveis e APIs resilientes, projetadas para alta concorrência e processamento intensivo de dados.",
+    description: "Construção de APIs, serviços e rotinas de processamento com foco em estabilidade, clareza e manutenção.",
     technologies: [
       {
         name: "Go",
-        rationale: "Performance extrema e concorrência nativa para microserviços críticos e processamento em tempo real."
+        rationale: "Boa escolha para serviços concorrentes, rotinas intensivas e componentes que exigem previsibilidade em produção."
       },
       {
         name: "Node.js / TypeScript",
-        rationale: "Desenvolvimento ágil com tipagem forte, ideal para ecossistemas serverless e integrações robustas de API."
+        rationale: "Uso em APIs, integrações e produtos web que precisam evoluir rápido sem abrir mão de contratos bem definidos."
       },
       {
         name: "Java Spring",
-        rationale: "Padronização e estabilidade comprovada para aplicações enterprise complexas e ecossistemas de larga escala."
+        rationale: "Aplicado em sistemas corporativos que pedem organização, padrões maduros e ciclos longos de manutenção."
       }
     ]
   },
@@ -27,19 +27,19 @@ const stacks = [
     category: "Infraestrutura & Cloud",
     icon: <Cloud className="w-5 h-5 text-emerald-400" />,
     color: "rgba(52, 211, 153, 0.08)",
-    description: "Automação, orquestração e deploy contínuo garantindo alta disponibilidade e zero downtime.",
+    description: "Ambientes versionados, deploys consistentes e operação preparada para crescimento gradual do produto.",
     technologies: [
       {
         name: "Docker & Kubernetes",
-        rationale: "Isolamento de ambiente e orquestração em larga escala, garantindo escalabilidade elástica sob demanda."
+        rationale: "Padronização de ambientes, empacotamento de serviços e operação mais previsível entre desenvolvimento e produção."
       },
       {
         name: "AWS",
-        rationale: "Ecossistema robusto para soluções serverless, storage distribuído e infraestrutura de rede segura."
+        rationale: "Base para hospedar aplicações, armazenar dados, configurar redes e operar serviços com recursos gerenciados."
       },
       {
         name: "Terraform",
-        rationale: "Infraestrutura como código (IaC) para provisionamento auditável, reprodutível e livre de erros manuais."
+        rationale: "Provisionamento de infraestrutura como código, facilitando revisão, repetição de ambientes e controle de mudanças."
       }
     ]
   },
@@ -47,19 +47,19 @@ const stacks = [
     category: "Dados & Segurança",
     icon: <Database className="w-5 h-5 text-purple-400" />,
     color: "rgba(192, 132, 252, 0.08)",
-    description: "Modelagem de dados eficiente, cache distribuído e protocolos rigorosos de autenticação.",
+    description: "Modelagem, persistência, cache e autenticação tratados como partes centrais da arquitetura.",
     technologies: [
       {
         name: "PostgreSQL",
-        rationale: "Confiabilidade ACID e recursos avançados para modelagem relacional, integridade de dados e auditoria."
+        rationale: "Banco principal para dados relacionais, consultas consistentes, integridade e histórico confiável."
       },
       {
         name: "Redis",
-        rationale: "Armazenamento em memória de ultra-baixa latência para mensageria, cache otimizado e gerenciamento de sessão."
+        rationale: "Usado para cache, sessões, filas leves e redução de carga em operações acessadas com frequência."
       },
       {
         name: "OAuth 2.0 & JWT",
-        rationale: "Padrões globais de segurança para delegação de autorização e identidades distribuídas sem estado."
+        rationale: "Implementação de autenticação e autorização com tokens, escopos e integração entre serviços."
       }
     ]
   },
@@ -67,19 +67,19 @@ const stacks = [
     category: "Experiência Frontend",
     icon: <Globe className="w-5 h-5 text-rose-400" />,
     color: "rgba(251, 113, 133, 0.08)",
-    description: "Interfaces fluidas, responsivas e acessíveis, focadas na melhor experiência do usuário e performance na ponta.",
+    description: "Interfaces responsivas, acessíveis e consistentes, com atenção à experiência de uso e performance.",
     technologies: [
       {
         name: "React & Next.js",
-        rationale: "Renderização híbrida (SSR/SSG), SEO otimizado e componentização reativa para aplicações modernas."
+        rationale: "Base para interfaces componentizadas, renderização eficiente e produtos web com boa organização de código."
       },
       {
         name: "Tailwind CSS",
-        rationale: "Estilização utilitária e design system escalável, mantendo a consistência visual com performance extrema."
+        rationale: "Facilita a criação de interfaces consistentes, com estilos reutilizáveis e ajustes rápidos sem CSS excessivo."
       },
       {
         name: "Framer Motion",
-        rationale: "Animações fluidas e baseadas em física que elevam a percepção de valor e engajamento da interface."
+        rationale: "Usado para transições, microinterações e feedback visual quando isso ajuda a tornar a interface mais clara."
       }
     ]
   }
@@ -127,11 +127,11 @@ function StackCard({ stack, index }: { stack: any, index: number }) {
           <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/[0.08] group-hover:scale-110 group-hover:rotate-[3deg] transition-all duration-500 shadow-xl">
             {stack.icon}
           </div>
-          <h4 className="text-2xl font-bold text-white font-display group-hover:text-white/90 transition-colors">{stack.category}</h4>
+          <h4 className="text-2xl md:text-3xl font-bold text-white font-display group-hover:text-white/90 transition-colors">{stack.category}</h4>
         </div>
         
         {/* Description */}
-        <p className="text-slate-400 text-sm leading-relaxed mb-8 pb-8 border-b border-white/5 group-hover:border-white/10 transition-colors duration-500">
+        <p className="text-slate-400 text-base leading-7 mb-8 pb-8 border-b border-white/5 group-hover:border-white/10 transition-colors duration-500">
           {stack.description}
         </p>
 
@@ -140,11 +140,11 @@ function StackCard({ stack, index }: { stack: any, index: number }) {
           {stack.technologies.map((tech: any, i: number) => (
             <div key={i} className="group/item flex gap-4 p-4 -mx-4 rounded-2xl hover:bg-white/[0.03] transition-all duration-300 cursor-default">
               <div className="mt-1 shrink-0">
-                <ChevronRight className="w-4 h-4 text-slate-600 group-hover/item:text-blue-400 group-hover/item:translate-x-1 group-hover/item:scale-110 transition-all duration-300" />
+                <ChevronRight className="w-5 h-5 text-slate-600 group-hover/item:text-blue-400 group-hover/item:translate-x-1 group-hover/item:scale-110 transition-all duration-300" />
               </div>
               <div>
-                <h5 className="text-white font-medium text-sm mb-1 group-hover/item:text-white transition-colors">{tech.name}</h5>
-                <p className="text-slate-500 text-sm leading-relaxed group-hover/item:text-slate-300 transition-colors">
+                <h5 className="text-white font-medium text-base mb-1.5 group-hover/item:text-white transition-colors">{tech.name}</h5>
+                <p className="text-slate-500 text-base leading-7 group-hover/item:text-slate-300 transition-colors">
                   {tech.rationale}
                 </p>
               </div>
@@ -173,18 +173,9 @@ const Stack = () => {
               Ecossistema <span className="text-slate-600 italic">técnico.</span>
             </h3>
             <p className="mt-6 text-slate-400 text-lg font-light">
-              Não se trata apenas das ferramentas, mas do <strong className="text-white font-medium">porquê</strong> de utilizá-las. Cada tecnologia é escolhida para resolver desafios específicos de escala, performance e segurança.
+              Tecnologias que utilizo para construir produtos estáveis, evolutivos e preparados para operação real, da arquitetura à interface.
             </p>
           </div>
-          
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="hidden md:flex items-center gap-2 text-slate-500 text-sm font-medium"
-          >
-            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-            Active Ecosystem
-          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

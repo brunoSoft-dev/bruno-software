@@ -10,16 +10,7 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="mb-10"
-        >
-          <div className="px-4 py-1.5 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-sm">
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-500/80">Engenharia de Software & IA Aplicada</span>
-          </div>
-        </motion.div>
+
 
         <motion.h1
           variants={{
@@ -79,8 +70,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.5 }}
           className="max-w-2xl mb-12"
         >
-          <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-xl mx-auto">
-            <span className="text-white font-medium italic">Desenvolvedor de Software.</span> Arquiteturas robustas e integração nativa de Inteligência Artificial para sistemas de alta complexidade, escalabilidade e regras críticas de negócio.
+          <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed max-w-xl mx-auto">
+            <span className="text-white font-medium italic">Desenvolvedor de Software.</span> Sistemas complexos com arquitetura sólida, escalabilidade, regras de negócio e IA integrada.
           </p>
         </motion.div>
 

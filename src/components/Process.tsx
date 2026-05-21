@@ -3,22 +3,22 @@ import { Layers, Zap, Search, Target } from 'lucide-react';
 
 const steps = [
   {
-    icon: <Search className="w-4 h-4" />,
+    icon: <Search className="w-5 h-5" />,
     title: "Discovery",
     description: "Mapeamento profundo de fluxos críticos e métricas de sucesso.",
   },
   {
-    icon: <Layers className="w-4 h-4" />,
+    icon: <Layers className="w-5 h-5" />,
     title: "Architecture",
     description: "Design modular focado em escalabilidade e baixa latência.",
   },
   {
-    icon: <Zap className="w-4 h-4" />,
+    icon: <Zap className="w-5 h-5" />,
     title: "Engineering",
     description: "Desenvolvimento iterativo com rigor técnico e segurança.",
   },
   {
-    icon: <Target className="w-4 h-4" />,
+    icon: <Target className="w-5 h-5" />,
     title: "Impact",
     description: "Análise pós-deploy e evolução contínua baseada em dados.",
   }
@@ -27,7 +27,7 @@ const steps = [
 const Process = () => {
   return (
     <section id="processo" className="py-40 relative px-6">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-6xl">
         <div className="mb-24">
           <motion.h2 
             initial={{ opacity: 0 }}
@@ -41,7 +41,7 @@ const Process = () => {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5 rounded-[2rem] overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-2xl overflow-hidden">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -49,15 +49,15 @@ const Process = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-bg-dark p-12 hover:bg-white/[0.01] transition-colors duration-700 group"
+              className="bg-bg-dark min-h-[280px] p-10 md:p-12 lg:p-14 hover:bg-white/[0.015] transition-colors duration-700 group flex flex-col"
             >
-              <div className="text-slate-700 group-hover:text-blue-500 transition-colors duration-500 mb-12">
+              <div className="w-12 h-12 border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-slate-500 group-hover:text-slate-200 transition-colors duration-500 mb-16">
                 {step.icon}
               </div>
-              <div className="space-y-4">
-                <span className="text-[9px] font-bold text-slate-800 tracking-[0.2em] uppercase">Phase 0{index + 1}</span>
-                <h4 className="font-display text-xl font-bold text-white group-hover:text-slate-300 transition-colors">{step.title}</h4>
-                <p className="text-slate-600 text-sm font-light leading-relaxed group-hover:text-slate-500 transition-colors">
+              <div className="space-y-5 mt-auto">
+                <span className="text-[10px] font-bold text-slate-600 tracking-[0.24em] uppercase">Phase 0{index + 1}</span>
+                <h4 className="font-display text-2xl font-bold text-white tracking-tight group-hover:text-slate-200 transition-colors">{step.title}</h4>
+                <p className="text-slate-400 text-base font-light leading-7 group-hover:text-slate-300 transition-colors">
                   {step.description}
                 </p>
               </div>
