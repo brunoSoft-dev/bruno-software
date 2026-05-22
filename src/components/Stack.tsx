@@ -4,22 +4,22 @@ import { Terminal, Cloud, Database, Globe, ChevronRight } from 'lucide-react';
 
 const stacks = [
   {
-    category: "Engenharia Backend",
+    category: "Backend",
     icon: <Terminal className="w-5 h-5 text-blue-400" />,
     color: "rgba(96, 165, 250, 0.08)",
     description: "Construção de APIs, serviços e rotinas de processamento com foco em estabilidade, clareza e manutenção.",
     technologies: [
       {
+        name: "Python",
+        rationale: "Uso em automações, APIs, integrações e soluções com foco em produtividade, dados e inteligência artificial."
+      },
+      {
         name: "Go",
         rationale: "Boa escolha para serviços concorrentes, rotinas intensivas e componentes que exigem previsibilidade em produção."
       },
       {
-        name: "Node.js / TypeScript",
-        rationale: "Uso em APIs, integrações e produtos web que precisam evoluir rápido sem abrir mão de contratos bem definidos."
-      },
-      {
-        name: "Java Spring",
-        rationale: "Aplicado em sistemas corporativos que pedem organização, padrões maduros e ciclos longos de manutenção."
+        name: "C#",
+        rationale: "Aplicado em sistemas corporativos, APIs robustas e soluções que pedem organização, tipagem forte e manutenção contínua."
       }
     ]
   },
@@ -30,16 +30,16 @@ const stacks = [
     description: "Ambientes versionados, deploys consistentes e operação preparada para crescimento gradual do produto.",
     technologies: [
       {
-        name: "Docker & Kubernetes",
-        rationale: "Padronização de ambientes, empacotamento de serviços e operação mais previsível entre desenvolvimento e produção."
+        name: "Docker",
+        rationale: "Padronização de ambientes, empacotamento de serviços e execução mais previsível entre desenvolvimento e produção."
       },
       {
-        name: "AWS",
-        rationale: "Base para hospedar aplicações, armazenar dados, configurar redes e operar serviços com recursos gerenciados."
+        name: "Railway, Vercel & Render",
+        rationale: "Deploy e hospedagem de aplicações web, APIs e serviços com velocidade, praticidade e integração com fluxos modernos."
       },
       {
-        name: "Terraform",
-        rationale: "Provisionamento de infraestrutura como código, facilitando revisão, repetição de ambientes e controle de mudanças."
+        name: "Google Cloud",
+        rationale: "Base para hospedar aplicações, integrar serviços gerenciados e preparar soluções para escala e operação em nuvem."
       }
     ]
   },
@@ -50,16 +50,16 @@ const stacks = [
     description: "Modelagem, persistência, cache e autenticação tratados como partes centrais da arquitetura.",
     technologies: [
       {
-        name: "PostgreSQL",
-        rationale: "Banco principal para dados relacionais, consultas consistentes, integridade e histórico confiável."
+        name: "MySQL",
+        rationale: "Banco relacional para persistência estruturada, consultas consistentes e organização de dados de negócio."
       },
       {
         name: "Redis",
         rationale: "Usado para cache, sessões, filas leves e redução de carga em operações acessadas com frequência."
       },
       {
-        name: "OAuth 2.0 & JWT",
-        rationale: "Implementação de autenticação e autorização com tokens, escopos e integração entre serviços."
+        name: "Criptografia, JWT & OAuth 2.0",
+        rationale: "Implementação de autenticação, autorização e proteção de dados com tokens, escopos e boas práticas de segurança."
       }
     ]
   },
@@ -70,7 +70,7 @@ const stacks = [
     description: "Interfaces responsivas, acessíveis e consistentes, com atenção à experiência de uso e performance.",
     technologies: [
       {
-        name: "React & Next.js",
+        name: "React, Next.js & Vite",
         rationale: "Base para interfaces componentizadas, renderização eficiente e produtos web com boa organização de código."
       },
       {
@@ -78,8 +78,8 @@ const stacks = [
         rationale: "Facilita a criação de interfaces consistentes, com estilos reutilizáveis e ajustes rápidos sem CSS excessivo."
       },
       {
-        name: "Framer Motion",
-        rationale: "Usado para transições, microinterações e feedback visual quando isso ajuda a tornar a interface mais clara."
+        name: "HTML/CSS",
+        rationale: "Fundação para marcação semântica, responsividade, acessibilidade e refinamento visual de interfaces."
       }
     ]
   }
@@ -117,10 +117,10 @@ function StackCard({ stack, index }: { stack: any, index: number }) {
           `,
         }}
       />
-      
+
       {/* Corner subtle glow (static fallback/ambient) */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-white/[0.04] to-transparent rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-1000" />
-      
+
       <div className="relative z-10">
         {/* Header */}
         <div className="flex items-center gap-5 mb-6">
@@ -129,7 +129,7 @@ function StackCard({ stack, index }: { stack: any, index: number }) {
           </div>
           <h4 className="text-2xl md:text-3xl font-bold text-white font-display group-hover:text-white/90 transition-colors">{stack.category}</h4>
         </div>
-        
+
         {/* Description */}
         <p className="text-slate-400 text-base leading-7 mb-8 pb-8 border-b border-white/5 group-hover:border-white/10 transition-colors duration-500">
           {stack.description}
@@ -162,7 +162,7 @@ const Stack = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-3xl">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               className="text-[11px] font-bold uppercase tracking-[0.4em] text-blue-500 mb-6"
