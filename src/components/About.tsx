@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Award, BookOpen, Star, Terminal as TerminalIcon, Activity, Cpu, Fingerprint, ShieldCheck } from 'lucide-react';
+import { Award, BookOpen, Star, Terminal as TerminalIcon } from 'lucide-react';
 import profilePic from '../assets/foto_perfil.jpeg';
 const CodeSnippet = `import asyncio
 from core.engine import DistributedCluster

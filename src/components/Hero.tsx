@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Cpu, Code2, ShieldCheck, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (

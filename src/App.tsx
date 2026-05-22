@@ -28,9 +28,6 @@ function App() {
           takeoverDuration={0.25}
           autoResumeDelay={3000}
           autoRampDuration={0.6}
-          color0="#5227FF"
-          color1="#0d00ff"
-          color2="#8400ff"
       />
       </div>
 

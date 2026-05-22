@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, ArrowRight, CheckCircle2, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Mail, MapPin, ExternalLink } from 'lucide-react';
 
 const steps = [
   {
