@@ -6,6 +6,7 @@ import About from './components/About'
 import Stack from './components/Stack'
 import Contact from './components/Contact'
 import LiquidEther from '../@/components/LiquidEther'
+import ContactCTA from './components/ContactCTA'
 
 function App() {
   return (
@@ -45,10 +46,16 @@ function App() {
               <a href="#experiencia" className="hover:text-white transition-colors">Exp</a>
               <a href="#sobre" className="hover:text-white transition-colors">About</a>
               <a href="#stack" className="hover:text-white transition-colors">Stack</a>
-              <a href="#contato" className="text-blue-400 hover:text-blue-300 transition-colors">Contact</a>
+              <a href="#contato" className="hover:text-white transition-colors">Contact</a>
             </div>
 
-            <div className="w-12 h-px bg-white/20 hidden lg:block" />
+            <div className="flex items-center gap-4 pointer-events-auto">
+              <ContactCTA
+                buttonLabel="Contato"
+                buttonClassName="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.32em] text-white transition hover:border-white/30 hover:bg-white/5"
+              />
+              <div className="w-12 h-px bg-white/20 hidden lg:block" />
+            </div>
           </div>
         </nav>
 

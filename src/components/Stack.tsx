@@ -1,25 +1,26 @@
 import React from 'react';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { Terminal, Cloud, Database, Globe, ChevronRight } from 'lucide-react';
+import ContactCTA from './ContactCTA';
 
 const stacks = [
   {
     category: "Backend",
     icon: <Terminal className="w-5 h-5 text-blue-400" />,
     color: "rgba(96, 165, 250, 0.08)",
-    description: "Construção de APIs, serviços e rotinas de processamento com foco em estabilidade, clareza e manutenção.",
+    description: "ConstruÃ§Ã£o de APIs, serviÃ§os e rotinas de processamento com foco em estabilidade, clareza e manutenÃ§Ã£o.",
     technologies: [
       {
         name: "Python",
-        rationale: "Uso em automações, APIs, integrações e soluções com foco em produtividade, dados e inteligência artificial."
+        rationale: "Uso em automaÃ§Ãµes, APIs, integraÃ§Ãµes e soluÃ§Ãµes com foco em produtividade, dados e inteligÃªncia artificial."
       },
       {
         name: "Go",
-        rationale: "Boa escolha para serviços concorrentes, rotinas intensivas e componentes que exigem previsibilidade em produção."
+        rationale: "Boa escolha para serviÃ§os concorrentes, rotinas intensivas e componentes que exigem previsibilidade em produÃ§Ã£o."
       },
       {
         name: "C#",
-        rationale: "Aplicado em sistemas corporativos, APIs robustas e soluções que pedem organização, tipagem forte e manutenção contínua."
+        rationale: "Aplicado em sistemas corporativos, APIs robustas e soluÃ§Ãµes que pedem organizaÃ§Ã£o, tipagem forte e manutenÃ§Ã£o contÃ­nua."
       }
     ]
   },
@@ -27,59 +28,59 @@ const stacks = [
     category: "Infraestrutura & Cloud",
     icon: <Cloud className="w-5 h-5 text-emerald-400" />,
     color: "rgba(52, 211, 153, 0.08)",
-    description: "Ambientes versionados, deploys consistentes e operação preparada para crescimento gradual do produto.",
+    description: "Ambientes versionados, deploys consistentes e operaÃ§Ã£o preparada para crescimento gradual do produto.",
     technologies: [
       {
         name: "Docker",
-        rationale: "Padronização de ambientes, empacotamento de serviços e execução mais previsível entre desenvolvimento e produção."
+        rationale: "PadronizaÃ§Ã£o de ambientes, empacotamento de serviÃ§os e execuÃ§Ã£o mais previsÃ­vel entre desenvolvimento e produÃ§Ã£o."
       },
       {
         name: "Railway, Vercel & Render",
-        rationale: "Deploy e hospedagem de aplicações web, APIs e serviços com velocidade, praticidade e integração com fluxos modernos."
+        rationale: "Deploy e hospedagem de aplicaÃ§Ãµes web, APIs e serviÃ§os com velocidade, praticidade e integraÃ§Ã£o com fluxos modernos."
       },
       {
         name: "Google Cloud",
-        rationale: "Base para hospedar aplicações, integrar serviços gerenciados e preparar soluções para escala e operação em nuvem."
+        rationale: "Base para hospedar aplicaÃ§Ãµes, integrar serviÃ§os gerenciados e preparar soluÃ§Ãµes para escala e operaÃ§Ã£o em nuvem."
       }
     ]
   },
   {
-    category: "Dados & Segurança",
+    category: "Dados & SeguranÃ§a",
     icon: <Database className="w-5 h-5 text-purple-400" />,
     color: "rgba(192, 132, 252, 0.08)",
-    description: "Modelagem, persistência, cache e autenticação tratados como partes centrais da arquitetura.",
+    description: "Modelagem, persistÃªncia, cache e autenticaÃ§Ã£o tratados como partes centrais da arquitetura.",
     technologies: [
       {
         name: "MySQL",
-        rationale: "Banco relacional para persistência estruturada, consultas consistentes e organização de dados de negócio."
+        rationale: "Banco relacional para persistÃªncia estruturada, consultas consistentes e organizaÃ§Ã£o de dados de negÃ³cio."
       },
       {
         name: "Redis",
-        rationale: "Usado para cache, sessões, filas leves e redução de carga em operações acessadas com frequência."
+        rationale: "Usado para cache, sessÃµes, filas leves e reduÃ§Ã£o de carga em operaÃ§Ãµes acessadas com frequÃªncia."
       },
       {
         name: "Criptografia, JWT & OAuth 2.0",
-        rationale: "Implementação de autenticação, autorização e proteção de dados com tokens, escopos e boas práticas de segurança."
+        rationale: "ImplementaÃ§Ã£o de autenticaÃ§Ã£o, autorizaÃ§Ã£o e proteÃ§Ã£o de dados com tokens, escopos e boas prÃ¡ticas de seguranÃ§a."
       }
     ]
   },
   {
-    category: "Experiência Frontend",
+    category: "ExperiÃªncia Frontend",
     icon: <Globe className="w-5 h-5 text-rose-400" />,
     color: "rgba(251, 113, 133, 0.08)",
-    description: "Interfaces responsivas, acessíveis e consistentes, com atenção à experiência de uso e performance.",
+    description: "Interfaces responsivas, acessÃ­veis e consistentes, com atenÃ§Ã£o Ã  experiÃªncia de uso e performance.",
     technologies: [
       {
         name: "React, Next.js & Vite",
-        rationale: "Base para interfaces componentizadas, renderização eficiente e produtos web com boa organização de código."
+        rationale: "Base para interfaces componentizadas, renderizaÃ§Ã£o eficiente e produtos web com boa organizaÃ§Ã£o de cÃ³digo."
       },
       {
         name: "Tailwind CSS",
-        rationale: "Facilita a criação de interfaces consistentes, com estilos reutilizáveis e ajustes rápidos sem CSS excessivo."
+        rationale: "Facilita a criaÃ§Ã£o de interfaces consistentes, com estilos reutilizÃ¡veis e ajustes rÃ¡pidos sem CSS excessivo."
       },
       {
         name: "HTML/CSS",
-        rationale: "Fundação para marcação semântica, responsividade, acessibilidade e refinamento visual de interfaces."
+        rationale: "FundaÃ§Ã£o para marcaÃ§Ã£o semÃ¢ntica, responsividade, acessibilidade e refinamento visual de interfaces."
       }
     ]
   }
@@ -104,7 +105,6 @@ function StackCard({ stack, index }: { stack: any, index: number }) {
       onMouseMove={handleMouseMove}
       className="group relative p-8 md:p-10 rounded-[2rem] border border-white/5 bg-white/[0.02] overflow-hidden"
     >
-      {/* Dynamic Mouse Spotlight Layer */}
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-[2rem] opacity-0 transition duration-500 group-hover:opacity-100 z-0"
         style={{
@@ -118,11 +118,9 @@ function StackCard({ stack, index }: { stack: any, index: number }) {
         }}
       />
 
-      {/* Corner subtle glow (static fallback/ambient) */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-white/[0.04] to-transparent rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-1000" />
 
       <div className="relative z-10">
-        {/* Header */}
         <div className="flex items-center gap-5 mb-6">
           <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/[0.08] group-hover:scale-110 group-hover:rotate-[3deg] transition-all duration-500 shadow-xl">
             {stack.icon}
@@ -130,12 +128,10 @@ function StackCard({ stack, index }: { stack: any, index: number }) {
           <h4 className="text-2xl md:text-3xl font-bold text-white font-display group-hover:text-white/90 transition-colors">{stack.category}</h4>
         </div>
 
-        {/* Description */}
         <p className="text-slate-400 text-base leading-7 mb-8 pb-8 border-b border-white/5 group-hover:border-white/10 transition-colors duration-500">
           {stack.description}
         </p>
 
-        {/* Interactive Technologies List */}
         <div className="space-y-2">
           {stack.technologies.map((tech: any, i: number) => (
             <div key={i} className="group/item flex gap-4 p-4 -mx-4 rounded-2xl hover:bg-white/[0.03] transition-all duration-300 cursor-default">
@@ -170,11 +166,15 @@ const Stack = () => {
               Capabilities
             </motion.h2>
             <h3 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight">
-              Ecossistema <span className="text-slate-600 italic">técnico.</span>
+              Ecossistema <span className="text-slate-600 italic">tÃ©cnico.</span>
             </h3>
             <p className="mt-6 text-slate-400 text-lg font-light">
-              Tecnologias que utilizo para construir produtos estáveis, evolutivos e preparados para operação real, da arquitetura à interface.
+              Tecnologias que utilizo para construir produtos estÃ¡veis, evolutivos e preparados para operaÃ§Ã£o real, da arquitetura Ã  interface.
             </p>
+          </div>
+
+          <div className="flex justify-center md:justify-end">
+            <ContactCTA />
           </div>
         </div>
 

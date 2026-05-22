@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import type { MouseEvent, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, PhoneCall, Terminal, Gem, Map, Gamepad2, MessageCircle, Search as SearchIcon } from 'lucide-react';
+import ContactCTA from './ContactCTA';
 
 import call360Image1 from '../assets/projects/call360/image1.jpg';
 import call360Image2 from '../assets/projects/call360/image2.jpg';
@@ -209,17 +210,21 @@ const Projects = () => {
   return (
     <section id="projetos" className="py-40 relative px-6">
       <div className="container mx-auto max-w-7xl">
-        <div className="mb-24">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-[11px] font-bold uppercase tracking-[0.4em] text-blue-500 mb-6"
-          >
-            Curated Work
-          </motion.h2>
-          <h3 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tighter leading-tight">
-            Projetos & <span className="text-slate-400 italic">Resultados.</span>
-          </h3>
+        <div className="mb-24 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div>
+            <motion.h2 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-[11px] font-bold uppercase tracking-[0.4em] text-blue-500 mb-6"
+            >
+              Curated Work
+            </motion.h2>
+            <h3 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tighter leading-tight">
+              Projetos & <span className="text-slate-400 italic">Resultados.</span>
+            </h3>
+          </div>
+
+          <ContactCTA />
         </div>
 
         <div className="mb-10 max-w-xl">
