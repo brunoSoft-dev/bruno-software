@@ -174,7 +174,10 @@ const Stack = () => {
           </div>
 
           <div className="flex justify-center md:justify-end">
-            <ContactCTA />
+            <ContactCTA
+              buttonLabel="Contato"
+              buttonClassName="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-[10px] font-bold uppercase tracking-[0.32em] text-white transition hover:border-white/30 hover:bg-white/5"
+            />
           </div>
         </div>
 
@@ -182,6 +185,13 @@ const Stack = () => {
           {stacks.map((stack, index) => (
             <StackCard key={index} stack={stack} index={index} />
           ))}
+        </div>
+
+        <div className="mt-14 flex justify-center">
+          <ContactCTA
+            buttonLabel="[ contato técnico ]"
+            buttonClassName="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-[10px] font-bold uppercase tracking-[0.32em] text-white transition hover:border-white/30 hover:bg-white/5"
+          />
         </div>
       </div>
     </section>

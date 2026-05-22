@@ -62,10 +62,6 @@ const Contact = () => {
                   />
                 ))}
               </div>
-
-              <div className="flex justify-start md:justify-end">
-                <ContactCTA />
-              </div>
             </div>
 
             <AnimatePresence mode="wait">
@@ -80,6 +76,11 @@ const Contact = () => {
                 <h3 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight">
                   {questionText}
                 </h3>
+
+                <ContactCTA
+                  buttonLabel="Canais diretos"
+                  buttonClassName="inline-flex w-fit items-center justify-center rounded-none border-b border-white/20 pb-2 text-[10px] font-bold uppercase tracking-[0.34em] text-slate-300 transition hover:border-white hover:text-white"
+                />
 
                 <div className="relative group">
                   {currentStepData.type === 'textarea' ? (
@@ -140,7 +141,10 @@ const Contact = () => {
                 Enviar outra mensagem
               </button>
 
-              <ContactCTA />
+              <ContactCTA
+                buttonLabel="Abrir canais"
+                buttonClassName="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-[10px] font-bold uppercase tracking-[0.3em] text-black transition hover:bg-slate-200"
+              />
             </div>
           </motion.div>
         )}
@@ -161,7 +165,7 @@ const Contact = () => {
               className="flex items-center gap-4 group"
             >
               <ExternalLink className="w-4 h-4 text-slate-600 group-hover:text-white transition-colors" />
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">linkedin.com/in/bruno-ribeiro-778243264</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">LinkedIn</span>
             </a>
             <div className="flex items-center gap-4 group">
               <MapPin className="w-4 h-4 text-slate-600" />
