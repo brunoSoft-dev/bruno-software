@@ -151,7 +151,7 @@ const Experience = () => {
               Track Record
             </motion.h2>
             <h3 className="font-display text-5xl md:text-6xl font-bold text-white tracking-tight">
-              Experiência focada <br /> em <span className="text-slate-400 italic">gerar valor.</span>
+              Experiências
             </h3>
           </div>
         </div>
