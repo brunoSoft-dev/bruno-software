@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import type { MouseEvent, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, PhoneCall, Terminal, Gem, Map, Gamepad2, MessageCircle, Search as SearchIcon } from 'lucide-react';
-import ContactCTA from './ContactCTA';
+
 
 import call360Image1 from '../assets/projects/call360/image1.jpg';
 import call360Image2 from '../assets/projects/call360/image2.jpg';
@@ -223,11 +223,6 @@ const Projects = () => {
               Projetos & <span className="text-slate-400 italic">Resultados.</span>
             </h3>
           </div>
-
-          <ContactCTA
-            buttonLabel="Contato"
-            buttonClassName="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-[10px] font-bold uppercase tracking-[0.32em] text-white transition hover:border-white/30 hover:bg-white/5"
-          />
         </div>
 
         <div className="mb-10 max-w-xl">

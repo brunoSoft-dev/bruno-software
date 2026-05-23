@@ -6,27 +6,21 @@ import ContactCTA from './ContactCTA';
 const steps = [
   {
     id: 'name',
-    question: "Vamos comeÃ§ar pelo bÃ¡sico. Qual o seu nome?",
-    placeholder: "Seu nome completo...",
+    question: "Olá! Qual o seu nome?",
+    placeholder: "Seu nome...",
     type: "text"
   },
   {
-    id: 'email',
-    question: "Prazer em te conhecer, {name}. Qual o seu melhor e-mail?",
-    placeholder: "seu@email.com",
-    type: "email"
-  },
-  {
     id: 'message',
-    question: "Como posso ajudar no seu prÃ³ximo desafio tÃ©cnico?",
-    placeholder: "Descreva brevemente o projeto ou ideia...",
+    question: "Prazer, {name}. Sobre o que vamos conversar?",
+    placeholder: "Conte brevemente sua ideia, projeto, oportunidade...",
     type: "textarea"
   }
 ];
 
 const Contact = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleNext = () => {
@@ -34,6 +28,20 @@ const Contact = () => {
       setCurrentStep(currentStep + 1);
     } else {
       setIsSubmitted(true);
+
+      // WhatsApp configuration and message assembly
+      const phone = "5519990154225";
+      const formattedMessage = `Olá Bruno!
+
+Me chamo *${formData.name}* e gostaria de conversar com você.
+
+*Assunto / Desafio:*
+${formData.message}
+
+_Mensagem enviada através do seu Portfólio._`;
+
+      const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(formattedMessage)}`;
+      window.open(whatsappUrl, '_blank');
     }
   };
 
@@ -42,7 +50,8 @@ const Contact = () => {
   };
 
   const currentStepData = steps[currentStep];
-  const questionText = currentStepData.question.replace('{name}', formData.name || 'amigo');
+  const nameGreeting = formData.name ? formData.name.split(' ')[0] : 'amigo';
+  const questionText = currentStepData.question.replace('{name}', nameGreeting);
 
   return (
     <section id="contato" className="py-32 relative px-6 min-h-[80vh] flex flex-col justify-center overflow-hidden">
@@ -73,7 +82,7 @@ const Contact = () => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="space-y-10"
               >
-                <h3 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight">
+                <h3 className="font-display text-2xl sm:text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight">
                   {questionText}
                 </h3>
 
@@ -88,7 +97,7 @@ const Contact = () => {
                       value={formData[currentStepData.id as keyof typeof formData]}
                       onChange={handleInputChange}
                       placeholder={currentStepData.placeholder}
-                      className="w-full bg-transparent border-b-2 border-white/10 py-6 text-2xl md:text-3xl text-white outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-800 min-h-[150px] resize-none"
+                      className="w-full bg-transparent border-b-2 border-white/10 py-4 sm:py-6 text-lg sm:text-2xl md:text-3xl text-white outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-800 min-h-[120px] sm:min-h-[150px] resize-none"
                     />
                   ) : (
                     <input
@@ -97,16 +106,16 @@ const Contact = () => {
                       onChange={handleInputChange}
                       onKeyDown={(e) => e.key === 'Enter' && handleNext()}
                       placeholder={currentStepData.placeholder}
-                      className="w-full bg-transparent border-b-2 border-white/10 py-6 text-2xl md:text-4xl text-white outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-800"
+                      className="w-full bg-transparent border-b-2 border-white/10 py-4 sm:py-6 text-lg sm:text-2xl md:text-4xl text-white outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-800"
                     />
                   )}
 
-                  <div className="absolute right-0 bottom-6">
+                  <div className="flex justify-end mt-4 sm:absolute sm:right-0 sm:bottom-6 sm:mt-0">
                     <button 
                       onClick={handleNext}
-                      className="flex items-center gap-3 px-8 py-3 bg-white text-black rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-blue-50 transition-all active:scale-95 group"
+                      className="flex items-center gap-3 px-6 sm:px-8 py-3 bg-white text-black rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-blue-50 transition-all active:scale-95 group"
                     >
-                      {currentStep === steps.length - 1 ? 'Enviar' : 'PrÃ³ximo'}
+                      {currentStep === steps.length - 1 ? 'Enviar' : 'Próximo'}
                       <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -115,7 +124,7 @@ const Contact = () => {
             </AnimatePresence>
 
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-700">
-              Pressione <span className="text-slate-500">Enter â†µ</span> para continuar
+              Pressione <span className="text-slate-500">Enter ↵</span> para continuar
             </p>
           </div>
         ) : (
@@ -127,15 +136,15 @@ const Contact = () => {
             <div className="w-20 h-20 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-10">
               <CheckCircle2 className="w-10 h-10 text-emerald-500" />
             </div>
-            <h3 className="font-display text-5xl md:text-7xl font-bold text-white tracking-tight">
+            <h3 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tight">
               Mensagem <br /> <span className="text-slate-400 italic">processada.</span>
             </h3>
             <p className="text-slate-400 text-lg font-light max-w-md mx-auto">
-              Obrigado, {formData.name}. Recebi seus dados e entrarei em contato em breve para discutirmos seu projeto.
+              Obrigado, {formData.name.split(' ')[0]}. Recebi seus dados e logo entrarei em contato para conversarmos.
             </p>
             <div className="flex flex-col items-center gap-4">
               <button 
-                onClick={() => { setIsSubmitted(false); setCurrentStep(0); setFormData({ name: '', email: '', message: '' }); }}
+                onClick={() => { setIsSubmitted(false); setCurrentStep(0); setFormData({ name: '', message: '' }); }}
                 className="px-10 py-4 bg-white/5 border border-white/10 text-white rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-white/10 transition-all"
               >
                 Enviar outra mensagem
@@ -169,7 +178,7 @@ const Contact = () => {
             </a>
             <div className="flex items-center gap-4 group">
               <MapPin className="w-4 h-4 text-slate-600" />
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Brasil | Remoto</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Brasil</span>
             </div>
           </div>
         )}

@@ -1,26 +1,26 @@
 import React from 'react';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { Terminal, Cloud, Database, Globe, ChevronRight } from 'lucide-react';
-import ContactCTA from './ContactCTA';
+
 
 const stacks = [
   {
     category: "Backend",
     icon: <Terminal className="w-5 h-5 text-blue-400" />,
     color: "rgba(96, 165, 250, 0.08)",
-    description: "ConstruÃ§Ã£o de APIs, serviÃ§os e rotinas de processamento com foco em estabilidade, clareza e manutenÃ§Ã£o.",
+    description: "Construção de APIs, serviços e rotinas de processamento com foco em estabilidade, clareza e manutenção.",
     technologies: [
       {
         name: "Python",
-        rationale: "Uso em automaÃ§Ãµes, APIs, integraÃ§Ãµes e soluÃ§Ãµes com foco em produtividade, dados e inteligÃªncia artificial."
+        rationale: "Uso em automações, APIs, integrações e soluções com foco em produtividade, dados e inteligência artificial."
       },
       {
         name: "Go",
-        rationale: "Boa escolha para serviÃ§os concorrentes, rotinas intensivas e componentes que exigem previsibilidade em produÃ§Ã£o."
+        rationale: "Boa escolha para serviços concorrentes, rotinas intensivas e componentes que exigem previsibilidade em produção."
       },
       {
         name: "C#",
-        rationale: "Aplicado em sistemas corporativos, APIs robustas e soluÃ§Ãµes que pedem organizaÃ§Ã£o, tipagem forte e manutenÃ§Ã£o contÃ­nua."
+        rationale: "Aplicado em sistemas corporativos, APIs robustas e soluções que pedem organização, tipagem forte e manutenção contínua."
       }
     ]
   },
@@ -28,62 +28,62 @@ const stacks = [
     category: "Infraestrutura & Cloud",
     icon: <Cloud className="w-5 h-5 text-emerald-400" />,
     color: "rgba(52, 211, 153, 0.08)",
-    description: "Ambientes versionados, deploys consistentes e operaÃ§Ã£o preparada para crescimento gradual do produto.",
+    description: "Ambientes versionados, deploys consistentes e operação preparada para crescimento gradual do produto.",
     technologies: [
       {
         name: "Docker",
-        rationale: "PadronizaÃ§Ã£o de ambientes, empacotamento de serviÃ§os e execuÃ§Ã£o mais previsÃ­vel entre desenvolvimento e produÃ§Ã£o."
+        rationale: "Padronização de ambientes, empacotamento de serviços e execução mais previsí­vel entre desenvolvimento e produção."
       },
       {
         name: "Railway, Vercel & Render",
-        rationale: "Deploy e hospedagem de aplicaÃ§Ãµes web, APIs e serviÃ§os com velocidade, praticidade e integraÃ§Ã£o com fluxos modernos."
+        rationale: "Deploy e hospedagem de aplicações web, APIs e serviços com velocidade, praticidade e integração com fluxos modernos."
       },
       {
         name: "Google Cloud",
-        rationale: "Base para hospedar aplicaÃ§Ãµes, integrar serviÃ§os gerenciados e preparar soluÃ§Ãµes para escala e operaÃ§Ã£o em nuvem."
+        rationale: "Base para hospedar aplicações, integrar serviços gerenciados e preparar soluções para escala e operação em nuvem."
       }
     ]
   },
   {
-    category: "Dados & SeguranÃ§a",
+    category: "Dados & Segurança",
     icon: <Database className="w-5 h-5 text-purple-400" />,
     color: "rgba(192, 132, 252, 0.08)",
-    description: "Modelagem, persistÃªncia, cache e autenticaÃ§Ã£o tratados como partes centrais da arquitetura.",
+    description: "Modelagem, persistência, cache e autenticação tratados como partes centrais da arquitetura.",
     technologies: [
       {
         name: "MySQL",
-        rationale: "Banco relacional para persistÃªncia estruturada, consultas consistentes e organizaÃ§Ã£o de dados de negÃ³cio."
+        rationale: "Banco relacional para persistência estruturada, consultas consistentes e organização de dados de negócio."
       },
       {
         name: "Redis",
-        rationale: "Usado para cache, sessÃµes, filas leves e reduÃ§Ã£o de carga em operaÃ§Ãµes acessadas com frequÃªncia."
+        rationale: "Usado para cache, sessões, filas leves e redução de carga em operações acessadas com frequência."
       },
       {
         name: "Criptografia, JWT & OAuth 2.0",
-        rationale: "ImplementaÃ§Ã£o de autenticaÃ§Ã£o, autorizaÃ§Ã£o e proteÃ§Ã£o de dados com tokens, escopos e boas prÃ¡ticas de seguranÃ§a."
+        rationale: "ImplementaÃ§Ã£o de autenticação, autorização e proteção de dados com tokens, escopos e boas práticas de segurança."
       }
     ]
   },
   {
-    category: "ExperiÃªncia Frontend",
-    icon: <Globe className="w-5 h-5 text-rose-400" />,
-    color: "rgba(251, 113, 133, 0.08)",
-    description: "Interfaces responsivas, acessÃ­veis e consistentes, com atenÃ§Ã£o Ã  experiÃªncia de uso e performance.",
-    technologies: [
-      {
-        name: "React, Next.js & Vite",
-        rationale: "Base para interfaces componentizadas, renderizaÃ§Ã£o eficiente e produtos web com boa organizaÃ§Ã£o de cÃ³digo."
-      },
-      {
-        name: "Tailwind CSS",
-        rationale: "Facilita a criaÃ§Ã£o de interfaces consistentes, com estilos reutilizÃ¡veis e ajustes rÃ¡pidos sem CSS excessivo."
-      },
-      {
-        name: "HTML/CSS",
-        rationale: "FundaÃ§Ã£o para marcaÃ§Ã£o semÃ¢ntica, responsividade, acessibilidade e refinamento visual de interfaces."
-      }
-    ]
-  }
+  category: "Experiência Frontend",
+  icon: <Globe className="w-5 h-5 text-rose-400" />,
+  color: "rgba(251, 113, 133, 0.08)",
+  description: "Desenvolvimento de interfaces web responsivas, acessíveis e performáticas, com foco em experiência do usuário, consistência visual e boas práticas de engenharia frontend.",
+  technologies: [
+    {
+      name: "React, Next.js & Vite",
+      rationale: "Construção de aplicações modernas baseadas em componentes, com foco em performance, organização de código e estratégias eficientes de renderização (SSR/SSG)."
+    },
+    {
+      name: "Tailwind CSS",
+      rationale: "Estilização ágil e escalável por meio de utility-first CSS, garantindo consistência visual, reutilização e redução de complexidade no gerenciamento de estilos."
+    },
+    {
+      name: "HTML/CSS",
+      rationale: "Base sólida em marcação semântica, responsividade, acessibilidade (a11y) e refinamento visual, assegurando interfaces robustas e compatíveis entre navegadores."
+    }
+  ]
+}
 ];
 
 function StackCard({ stack, index }: { stack: any, index: number }) {
@@ -166,18 +166,11 @@ const Stack = () => {
               Capabilities
             </motion.h2>
             <h3 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight">
-              Ecossistema <span className="text-slate-600 italic">tÃ©cnico.</span>
+              Ecossistema <span className="text-slate-600 italic">técnico.</span>
             </h3>
             <p className="mt-6 text-slate-400 text-lg font-light">
-              Tecnologias que utilizo para construir produtos estÃ¡veis, evolutivos e preparados para operaÃ§Ã£o real, da arquitetura Ã  interface.
+              Tecnologias que utilizo para construir produtos estáveis, evolutivos e preparados para operação real, da arquitetura á interface.
             </p>
-          </div>
-
-          <div className="flex justify-center md:justify-end">
-            <ContactCTA
-              buttonLabel="Contato"
-              buttonClassName="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-[10px] font-bold uppercase tracking-[0.32em] text-white transition hover:border-white/30 hover:bg-white/5"
-            />
           </div>
         </div>
 
@@ -185,13 +178,6 @@ const Stack = () => {
           {stacks.map((stack, index) => (
             <StackCard key={index} stack={stack} index={index} />
           ))}
-        </div>
-
-        <div className="mt-14 flex justify-center">
-          <ContactCTA
-            buttonLabel="[ contato técnico ]"
-            buttonClassName="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-[10px] font-bold uppercase tracking-[0.32em] text-white transition hover:border-white/30 hover:bg-white/5"
-          />
         </div>
       </div>
     </section>
