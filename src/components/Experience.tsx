@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Briefcase, Calendar, Target, Zap, Maximize2 } from 'lucide-react';
+import { Briefcase, Calendar, Target, Zap, Maximize2, ChevronDown } from 'lucide-react';
 
 import joiaImage from '../assets/experience/joia.png';
 import agentesImage from '../assets/experience/Agentes_de_IA_Cognitivos_Preditivos.png';
@@ -120,6 +120,49 @@ const experiences = [
   }
 ];
 
+const CollapsibleSection = ({ label, variant = 'default', children }: { label: string; variant?: 'default' | 'result'; children: ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const isResult = variant === 'result';
+
+  return (
+    <div className={`border-t ${isResult ? 'border-white/[0.1]' : 'border-white/[0.06]'}`}>
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between py-4 text-left group/collapse cursor-pointer"
+      >
+        <div className="flex items-center gap-2">
+          {isResult && <Zap className="w-4 h-4 text-slate-300" />}
+          <span className={`text-[11px] font-bold uppercase tracking-widest ${isResult ? 'text-slate-300' : 'text-slate-500'} group-hover/collapse:text-slate-300 transition-colors duration-300`}>
+            {label}
+          </span>
+        </div>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-4 h-4 text-slate-600 group-hover/collapse:text-slate-400 transition-colors duration-300" />
+        </motion.div>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="pb-5">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
 const Experience = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -187,7 +230,7 @@ const Experience = () => {
                 <div className="w-full md:w-2/3 space-y-8">
                   {exp.impacts.map((impact, i) => (
                     <div key={i} className="group border border-white/[0.08] bg-white/[0.015] p-7 md:p-9 rounded-xl transition-colors duration-300 hover:border-white/[0.16] hover:bg-white/[0.025]">
-                      <div className="flex items-start justify-between gap-5 mb-8">
+                      <div className="flex items-start justify-between gap-5 mb-2">
                         <div className="flex items-start gap-5">
                           <div className="w-10 h-10 rounded-md border border-white/[0.08] bg-white/[0.03] flex items-center justify-center shrink-0 text-slate-400 group-hover:text-white transition-colors duration-300">
                             <Target className="w-4 h-4" />
@@ -217,23 +260,15 @@ const Experience = () => {
                         )}
                       </div>
 
-                      <div className="grid grid-cols-1 gap-7">
-                        <div className="space-y-2 border-t border-white/[0.06] pt-5">
-                          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">O Problema</span>
-                          <p className="text-slate-400 text-base leading-7">{impact.problem}</p>
-                        </div>
-                        <div className="space-y-2 border-t border-white/[0.06] pt-5">
-                          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">Minha Atuação</span>
-                          <p className="text-slate-400 text-base leading-7">{impact.action}</p>
-                        </div>
-                        <div className="space-y-2 border-t border-white/[0.1] pt-5">
-                          <div className="flex items-center gap-2 mb-2 text-slate-300">
-                            <Zap className="w-4 h-4" />
-                            <span className="text-[11px] font-bold uppercase tracking-widest">Resultado Gerado</span>
-                          </div>
-                          <p className="text-slate-200 font-medium text-base leading-7">{impact.result}</p>
-                        </div>
-                      </div>
+                      <CollapsibleSection label="O Problema" variant="default">
+                        <p className="text-slate-400 text-base leading-7">{impact.problem}</p>
+                      </CollapsibleSection>
+                      <CollapsibleSection label="Minha Atuação" variant="default">
+                        <p className="text-slate-400 text-base leading-7">{impact.action}</p>
+                      </CollapsibleSection>
+                      <CollapsibleSection label="Resultado Gerado" variant="result">
+                        <p className="text-slate-200 font-medium text-base leading-7">{impact.result}</p>
+                      </CollapsibleSection>
                     </div>
                   ))}
                 </div>
